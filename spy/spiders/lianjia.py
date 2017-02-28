@@ -14,7 +14,7 @@ class Lianjia(scrapy.Spider):
     name = 'lianjia'
     baseurl = "http://sh.lianjia.com/ershoufang/d"
     def start_requests(self):
-        for i in range(1,0,-1):
+        for i in range(1,0,-1):#max_num最大爬取深度，默认使用1进行调试
             if bs(requests.get(self.baseurl+str(i)).text,'html.parser').find('div',attrs={'class':'pic-panel'}) is not None:
                 max_num = i
                 break
